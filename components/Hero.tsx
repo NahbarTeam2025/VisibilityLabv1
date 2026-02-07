@@ -56,28 +56,30 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-10">
-        {/* Increased gap on mobile (gap-8) to push text deeper */}
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+        {/* Gap and alignment */}
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
-          {/* Added pt-6 on mobile to move text block further down */}
-          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-6 md:pt-0">
+          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-2 md:pt-0">
             
-            {/* Main Brand Name with Dynamic Gradient - Large Size Kept */}
-            <div className="reveal">
-                 <span className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-accentBlue to-accentPurple animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-tight">
-                    VisibilityLab
-                 </span>
-            </div>
-
-            {/* Badge - Tighter margin top to stay close to title */}
-            <div className="reveal reveal-delay-100 -mt-2 md:mt-0">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-slate-300 text-xs font-bold tracking-widest uppercase hover:bg-white/10 transition-colors cursor-default">
-                    <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentPurple opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accentPurple"></span>
+            {/* Group Title and Badge for tight visual connection */}
+            <div className="flex flex-col items-center lg:items-start gap-3">
+                {/* Main Brand Name */}
+                <div className="reveal">
+                    <span className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-accentBlue to-accentPurple animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-[0.9]">
+                        VisibilityLab
                     </span>
-                    Next Level SEO Architecture
+                </div>
+
+                {/* Badge - Firmly under the title */}
+                <div className="reveal reveal-delay-100">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-slate-300 text-xs font-bold tracking-widest uppercase hover:bg-white/10 transition-colors cursor-default">
+                        <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentPurple opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-accentPurple"></span>
+                        </span>
+                        Next Level SEO Architecture
+                    </div>
                 </div>
             </div>
 
@@ -93,7 +95,7 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             
-            {/* Mobile simplified headline to save space if needed, otherwise standard */}
+            {/* Mobile simplified headline */}
             <h1 className="text-4xl font-heading font-black tracking-tight leading-[1.1] text-white reveal reveal-delay-200 mt-2 sm:hidden">
               Machen Sie Ihr Business <span className="text-accentBlue">sichtbar.</span>
             </h1>
@@ -127,27 +129,22 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: "The Digital Lens" Animation */}
-          {/* Height slightly adjusted for balance */}
           <div className="order-1 lg:order-2 relative flex justify-center items-center h-[380px] md:h-[500px] reveal reveal-delay-200 perspective-1000">
              
-             {/* Main Container for the Visual - Scaled down slightly on mobile */}
+             {/* Main Container for the Visual */}
              <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
                 
                 {/* 1. Center Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-accentBlue/20 rounded-full blur-[60px] animate-pulse-slow"></div>
 
                 {/* 2. Rotating Rings (The Radar) */}
-                {/* Ring 1 - Slow */}
                 <div className="absolute inset-0 rounded-full border border-white/5 animate-spin-slow">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[1px] w-1 h-2 bg-white/50"></div>
                 </div>
                 
-                {/* Ring 2 - Medium (Reverse) */}
                 <div className="absolute inset-[15%] rounded-full border border-dashed border-white/10 animate-spin-reverse-slow"></div>
                 
-                {/* Ring 3 - The "Scanner" */}
                 <div className="absolute inset-[-10%] rounded-full border border-accentBlue/10 flex items-center justify-center animate-[spin_30s_linear_infinite]">
-                    {/* The Scanning Beam */}
                     <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,rgba(59,130,246,0.1)_360deg)]"></div>
                     <div className="absolute top-0 w-[1px] h-[50%] bg-gradient-to-b from-accentBlue/0 to-accentBlue/50 origin-bottom"></div>
                 </div>
@@ -156,14 +153,10 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 m-auto w-28 h-28 md:w-40 md:h-40 bg-slate-900/80 backdrop-blur-xl rounded-full border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center z-20 overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-br from-accentBlue/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
                     <Search className="w-10 h-10 md:w-12 md:h-12 text-accentBlue relative z-10 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" strokeWidth={1.5} />
-                    
-                    {/* Scanning Line inside Core */}
                     <div className="absolute top-0 w-full h-[2px] bg-accentCyan/50 shadow-[0_0_10px_#06B6D4] animate-[scan_3s_ease-in-out_infinite]"></div>
                 </div>
 
-                {/* 4. Floating Metric Cards (Glassmorphism) */}
-                
-                {/* Top Right: SEO Rank */}
+                {/* 4. Floating Metric Cards */}
                 <div className="absolute top-0 right-0 md:-right-10 translate-y-6 md:translate-y-10 animate-float" style={{ animationDelay: '0s' }}>
                     <div className="glass-panel px-3 py-2 md:px-4 md:py-3 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl backdrop-blur-md bg-slate-900/60 hover:scale-105 transition-transform cursor-default">
                         <div className="p-1.5 rounded-lg bg-green-500/10 text-green-400">
@@ -176,7 +169,6 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Bottom Left: Traffic */}
                 <div className="absolute bottom-6 left-0 md:bottom-10 md:-left-12 animate-float" style={{ animationDelay: '1.5s' }}>
                     <div className="glass-panel px-3 py-2 md:px-4 md:py-3 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl backdrop-blur-md bg-slate-900/60 hover:scale-105 transition-transform cursor-default">
                         <div className="p-1.5 rounded-lg bg-accentBlue/10 text-accentBlue">
@@ -189,14 +181,12 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Top Left: Structure */}
                 <div className="absolute top-8 left-0 md:top-10 md:-left-4 animate-float" style={{ animationDelay: '2.5s' }}>
                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel border border-white/10 flex items-center justify-center bg-slate-900/60 shadow-lg text-accentPurple">
                       <BarChart2 className="w-5 h-5 md:w-6 md:h-6" />
                    </div>
                 </div>
 
-                {/* Bottom Right: Location */}
                 <div className="absolute bottom-16 right-0 md:bottom-20 md:-right-8 animate-float" style={{ animationDelay: '1s' }}>
                    <div className="glass-panel px-2 py-1.5 md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center gap-2 bg-slate-900/60">
                       <MapPin className="w-2.5 h-2.5 md:w-3 md:h-3 text-accentCyan" />
@@ -209,7 +199,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* CSS for specific animations in this component */}
       <style>{`
         @keyframes scan {
             0%, 100% { top: 0%; opacity: 0; }
