@@ -56,13 +56,14 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-10">
-        {/* Reduced gap on mobile (gap-4) to pull text closer to the visual */}
-        <div className="grid lg:grid-cols-2 gap-4 md:gap-12 lg:gap-20 items-center">
+        {/* Increased gap on mobile (gap-8) to push text deeper */}
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
-          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left">
+          {/* Added pt-6 on mobile to move text block further down */}
+          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-6 md:pt-0">
             
-            {/* Main Brand Name with Dynamic Gradient - Increased Font Size */}
+            {/* Main Brand Name with Dynamic Gradient - Large Size Kept */}
             <div className="reveal">
                  <span className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-accentBlue to-accentPurple animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-tight">
                     VisibilityLab
@@ -126,7 +127,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: "The Digital Lens" Animation */}
-          {/* Reduced height on mobile to pull text up (h-[380px] vs h-[500px]) */}
+          {/* Height slightly adjusted for balance */}
           <div className="order-1 lg:order-2 relative flex justify-center items-center h-[380px] md:h-[500px] reveal reveal-delay-200 perspective-1000">
              
              {/* Main Container for the Visual - Scaled down slightly on mobile */}
