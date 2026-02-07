@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
             </h1>
 
             {/* Subline */}
-            <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 reveal reveal-delay-300 border-l-2 border-white/10 pl-6 mt-6">
+            <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 reveal reveal-delay-300 mt-6">
               Wir verwandeln komplexe Daten in klare Strukturen. Mit unserer Hub-and-Spoke Technologie dominieren Sie Ihre Nische – lokal und global.
             </p>
 
