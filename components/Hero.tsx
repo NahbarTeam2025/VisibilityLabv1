@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[95vh] flex items-center justify-center overflow-hidden bg-deepBlue">
+    <section className="relative w-full min-h-[90vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden bg-deepBlue">
       
       {/* 1. Background Atmosphere - Deep and Calm */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -55,21 +55,22 @@ const Hero: React.FC = () => {
         </span>
       </div>
 
-      <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 pt-24 pb-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-10">
+        {/* Reduced gap on mobile (gap-4) to pull text closer to the visual */}
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
-          <div ref={textRef} className="order-2 lg:order-1 space-y-6 text-center lg:text-left">
+          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left">
             
-            {/* Main Brand Name with Dynamic Gradient */}
+            {/* Main Brand Name with Dynamic Gradient - Increased Font Size */}
             <div className="reveal">
-                 <span className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-accentBlue to-accentPurple animate-gradient bg-[length:200%_auto] drop-shadow-2xl">
+                 <span className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-accentBlue to-accentPurple animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-tight">
                     VisibilityLab
                  </span>
             </div>
 
-            {/* Badge */}
-            <div className="reveal reveal-delay-100">
+            {/* Badge - Tighter margin top to stay close to title */}
+            <div className="reveal reveal-delay-100 -mt-2 md:mt-0">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-slate-300 text-xs font-bold tracking-widest uppercase hover:bg-white/10 transition-colors cursor-default">
                     <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentPurple opacity-75"></span>
@@ -80,7 +81,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tight leading-[1.1] text-white reveal reveal-delay-200 mt-2">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tight leading-[1.1] text-white reveal reveal-delay-200 mt-2 hidden sm:block">
               Machen Sie Ihr <br/>
               Business <span className="relative inline-block text-white">
                 sichtbar.
@@ -90,6 +91,11 @@ const Hero: React.FC = () => {
                 </svg>
               </span>
             </h1>
+            
+            {/* Mobile simplified headline to save space if needed, otherwise standard */}
+            <h1 className="text-4xl font-heading font-black tracking-tight leading-[1.1] text-white reveal reveal-delay-200 mt-2 sm:hidden">
+              Machen Sie Ihr Business <span className="text-accentBlue">sichtbar.</span>
+            </h1>
 
             {/* Subline */}
             <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 reveal reveal-delay-300 border-l-2 border-white/10 pl-6 mt-6">
@@ -97,7 +103,7 @@ const Hero: React.FC = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-6 justify-center lg:justify-start reveal reveal-delay-400">
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 md:pt-6 justify-center lg:justify-start reveal reveal-delay-400">
               <button 
                 onClick={scrollToContact}
                 className="group relative w-full sm:w-auto px-8 py-4 bg-accentBlue text-white font-bold rounded-xl overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:-translate-y-1 active:scale-95"
@@ -120,10 +126,11 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: "The Digital Lens" Animation */}
-          <div className="order-1 lg:order-2 relative flex justify-center items-center h-[500px] reveal reveal-delay-200 perspective-1000">
+          {/* Reduced height on mobile to pull text up (h-[380px] vs h-[500px]) */}
+          <div className="order-1 lg:order-2 relative flex justify-center items-center h-[380px] md:h-[500px] reveal reveal-delay-200 perspective-1000">
              
-             {/* Main Container for the Visual */}
-             <div className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px]">
+             {/* Main Container for the Visual - Scaled down slightly on mobile */}
+             <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
                 
                 {/* 1. Center Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-accentBlue/20 rounded-full blur-[60px] animate-pulse-slow"></div>
@@ -145,9 +152,9 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* 3. Central Core */}
-                <div className="absolute inset-0 m-auto w-32 h-32 md:w-40 md:h-40 bg-slate-900/80 backdrop-blur-xl rounded-full border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center z-20 overflow-hidden group">
+                <div className="absolute inset-0 m-auto w-28 h-28 md:w-40 md:h-40 bg-slate-900/80 backdrop-blur-xl rounded-full border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center z-20 overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-br from-accentBlue/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                    <Search className="w-12 h-12 text-accentBlue relative z-10 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" strokeWidth={1.5} />
+                    <Search className="w-10 h-10 md:w-12 md:h-12 text-accentBlue relative z-10 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" strokeWidth={1.5} />
                     
                     {/* Scanning Line inside Core */}
                     <div className="absolute top-0 w-full h-[2px] bg-accentCyan/50 shadow-[0_0_10px_#06B6D4] animate-[scan_3s_ease-in-out_infinite]"></div>
@@ -156,43 +163,43 @@ const Hero: React.FC = () => {
                 {/* 4. Floating Metric Cards (Glassmorphism) */}
                 
                 {/* Top Right: SEO Rank */}
-                <div className="absolute top-0 right-0 md:-right-10 translate-y-10 animate-float" style={{ animationDelay: '0s' }}>
-                    <div className="glass-panel px-4 py-3 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl backdrop-blur-md bg-slate-900/60 hover:scale-105 transition-transform cursor-default">
+                <div className="absolute top-0 right-0 md:-right-10 translate-y-6 md:translate-y-10 animate-float" style={{ animationDelay: '0s' }}>
+                    <div className="glass-panel px-3 py-2 md:px-4 md:py-3 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl backdrop-blur-md bg-slate-900/60 hover:scale-105 transition-transform cursor-default">
                         <div className="p-1.5 rounded-lg bg-green-500/10 text-green-400">
-                            <Check className="w-4 h-4" />
+                            <Check className="w-3 h-3 md:w-4 md:h-4" />
                         </div>
                         <div>
-                            <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Ranking</div>
-                            <div className="text-sm font-bold text-white">Position #1</div>
+                            <div className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-wider">Ranking</div>
+                            <div className="text-xs md:text-sm font-bold text-white">Position #1</div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Left: Traffic */}
-                <div className="absolute bottom-10 left-0 md:-left-12 animate-float" style={{ animationDelay: '1.5s' }}>
-                    <div className="glass-panel px-4 py-3 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl backdrop-blur-md bg-slate-900/60 hover:scale-105 transition-transform cursor-default">
+                <div className="absolute bottom-6 left-0 md:bottom-10 md:-left-12 animate-float" style={{ animationDelay: '1.5s' }}>
+                    <div className="glass-panel px-3 py-2 md:px-4 md:py-3 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl backdrop-blur-md bg-slate-900/60 hover:scale-105 transition-transform cursor-default">
                         <div className="p-1.5 rounded-lg bg-accentBlue/10 text-accentBlue">
-                            <Activity className="w-4 h-4" />
+                            <Activity className="w-3 h-3 md:w-4 md:h-4" />
                         </div>
                         <div>
-                            <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Traffic</div>
-                            <div className="text-sm font-bold text-white">+245% Anstieg</div>
+                            <div className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-wider">Traffic</div>
+                            <div className="text-xs md:text-sm font-bold text-white">+245%</div>
                         </div>
                     </div>
                 </div>
 
                 {/* Top Left: Structure */}
-                <div className="absolute top-10 left-0 md:-left-4 animate-float" style={{ animationDelay: '2.5s' }}>
-                   <div className="w-12 h-12 rounded-full glass-panel border border-white/10 flex items-center justify-center bg-slate-900/60 shadow-lg text-accentPurple">
-                      <BarChart2 className="w-6 h-6" />
+                <div className="absolute top-8 left-0 md:top-10 md:-left-4 animate-float" style={{ animationDelay: '2.5s' }}>
+                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full glass-panel border border-white/10 flex items-center justify-center bg-slate-900/60 shadow-lg text-accentPurple">
+                      <BarChart2 className="w-5 h-5 md:w-6 md:h-6" />
                    </div>
                 </div>
 
                 {/* Bottom Right: Location */}
-                <div className="absolute bottom-20 right-0 md:-right-8 animate-float" style={{ animationDelay: '1s' }}>
-                   <div className="glass-panel px-3 py-2 rounded-lg border border-white/10 flex items-center gap-2 bg-slate-900/60">
-                      <MapPin className="w-3 h-3 text-accentCyan" />
-                      <span className="text-xs font-medium text-slate-200">Berlin</span>
+                <div className="absolute bottom-16 right-0 md:bottom-20 md:-right-8 animate-float" style={{ animationDelay: '1s' }}>
+                   <div className="glass-panel px-2 py-1.5 md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center gap-2 bg-slate-900/60">
+                      <MapPin className="w-2.5 h-2.5 md:w-3 md:h-3 text-accentCyan" />
+                      <span className="text-[10px] md:text-xs font-medium text-slate-200">Berlin</span>
                    </div>
                 </div>
 
