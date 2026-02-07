@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-10">
-        {/* Reduced gap on mobile to bring text higher */}
-        <div className="grid lg:grid-cols-2 gap-4 md:gap-12 lg:gap-20 items-center">
+        {/* Increased gap on mobile to gap-8 for more separation */}
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
           <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-6 md:pt-0">
