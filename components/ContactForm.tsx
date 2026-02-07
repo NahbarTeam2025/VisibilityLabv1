@@ -5,6 +5,7 @@ const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    website: '',
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -33,7 +34,7 @@ const ContactForm: React.FC = () => {
         body: encode({ "form-name": "contact", ...formData }),
       });
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', website: '', message: '' });
     } catch (error) {
       console.error(error);
       setStatus('error');
@@ -124,6 +125,20 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 group">
+                  <label htmlFor="website" className="block text-sm font-bold text-white uppercase tracking-widest group-focus-within:text-accentPurple transition-colors ml-1">Webseite</label>
+                  <input
+                    type="url"
+                    id="website"
+                    name="website"
+                    value={formData.website}
+                    onChange={handleChange}
+                    disabled={status === 'submitting'}
+                    className="w-full px-6 py-4 rounded-xl glass-input text-lg text-white placeholder-slate-400/70 transition-all duration-300 outline-none focus:ring-2 focus:ring-accentPurple/50 disabled:opacity-50 border border-white/10 hover:border-white/20 hover:bg-white/10 focus:bg-slate-900/60"
+                    placeholder="https://www.ihre-firma.de"
+                  />
+                </div>
+
+                <div className="space-y-3 group">
                   <label htmlFor="message" className="block text-sm font-bold text-white uppercase tracking-widest group-focus-within:text-accentPurple transition-colors ml-1">Nachricht</label>
                   <textarea
                     id="message"
@@ -159,7 +174,7 @@ const ContactForm: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        Kostenlose Analyse anfordern
+                        Get Visibility
                         <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                       </>
                     )}
