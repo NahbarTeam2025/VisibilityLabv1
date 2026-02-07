@@ -5,7 +5,7 @@ const WhyItWorks: React.FC = () => {
   const reasons = [
     {
       icon: <ClipboardList />,
-      title: "Keine Experimente",
+      title: "Keine blinden Experimente",
       desc: "Wir nutzen bewährte Frameworks und echte Daten, keine Vermutungen. Sicherheit für Ihr Budget."
     },
     {
