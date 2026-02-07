@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
-          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-2 md:pt-0">
+          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-8 md:pt-0">
             
             {/* Group Title and Badge for tight visual connection */}
             <div className="flex flex-col items-center lg:items-start gap-3">
