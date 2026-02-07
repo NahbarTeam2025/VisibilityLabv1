@@ -8,6 +8,7 @@ import Benefits from './components/Benefits';
 import Testimonial from './components/Testimonial';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -32,7 +33,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-techBlue text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-techBlue text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden relative">
       <Hero />
       <ProblemSection />
       <SolutionSection />
@@ -42,6 +43,7 @@ const App: React.FC = () => {
       <Testimonial />
       <ContactForm />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
