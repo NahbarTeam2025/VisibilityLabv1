@@ -49,21 +49,22 @@ const Hero: React.FC = () => {
          </span>
       </div>
 
-      <div className="absolute top-6 right-6 md:top-10 md:right-10 z-50">
+      {/* "by Robert" - Aligned vertically with Logo */}
+      <div className="absolute top-6 right-6 md:top-10 md:right-10 z-50 h-10 md:h-12 flex items-center">
         <span className="font-heading text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/30 uppercase hover:text-white transition-colors cursor-default">
             by Robert
         </span>
       </div>
 
       <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-10">
-        {/* Gap and alignment */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-20 items-center">
+        {/* Reduced gap on mobile to bring text higher */}
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
-          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-8 md:pt-0">
+          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-2 md:pt-0">
             
             {/* Group Title and Badge for tight visual connection */}
-            <div className="flex flex-col items-center lg:items-start gap-3">
+            <div className="flex flex-col items-center lg:items-start gap-2">
                 {/* Main Brand Name */}
                 <div className="reveal">
                     <span className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-accentBlue to-accentPurple animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-[0.9]">
@@ -129,10 +130,11 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: "The Digital Lens" Animation */}
-          <div className="order-1 lg:order-2 relative flex justify-center items-center h-[380px] md:h-[500px] reveal reveal-delay-200 perspective-1000">
+          {/* Reduced height on mobile to ensure text is visible above fold */}
+          <div className="order-1 lg:order-2 relative flex justify-center items-center h-[320px] md:h-[500px] reveal reveal-delay-200 perspective-1000">
              
-             {/* Main Container for the Visual */}
-             <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
+             {/* Main Container for the Visual - Slightly smaller on mobile */}
+             <div className="relative w-[280px] h-[280px] md:w-[450px] md:h-[450px]">
                 
                 {/* 1. Center Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-accentBlue/20 rounded-full blur-[60px] animate-pulse-slow"></div>
