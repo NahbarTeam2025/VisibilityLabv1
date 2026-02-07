@@ -84,8 +84,8 @@ const Hero: React.FC = () => {
                 </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tight leading-[1.1] text-white reveal reveal-delay-200 mt-2 hidden sm:block">
+            {/* Headline - Removed 'reveal' class so it's visible immediately */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tight leading-[1.1] text-white mt-2 hidden sm:block">
               Machen Sie Ihr <br/>
               Business <span className="relative inline-block text-white">
                 sichtbar.
@@ -96,8 +96,8 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             
-            {/* Mobile simplified headline */}
-            <h1 className="text-4xl font-heading font-black tracking-tight leading-[1.1] text-white reveal reveal-delay-200 mt-2 sm:hidden">
+            {/* Mobile simplified headline - Removed 'reveal' class */}
+            <h1 className="text-4xl font-heading font-black tracking-tight leading-[1.1] text-white mt-2 sm:hidden">
               Machen Sie Ihr Business <span className="text-accentBlue">sichtbar.</span>
             </h1>
 
