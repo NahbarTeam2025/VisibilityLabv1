@@ -33,7 +33,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-techBlue text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden relative">
+    <div className="bg-deepBlue text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden">
       <Hero />
       <ProblemSection />
       <SolutionSection />

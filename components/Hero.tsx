@@ -1,30 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ArrowRight, Search, MapPin, BarChart2, Activity, Zap, Check } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const textRef = useRef<HTMLDivElement>(null);
-
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Parallax for text
-  useEffect(() => {
-    const handleScroll = () => {
-      if (textRef.current && window.innerWidth > 768) {
-        const scrollY = window.scrollY;
-        // Fade out quicker and move up slightly
-        const opacity = Math.max(0, 1 - scrollY / 600);
-        textRef.current.style.transform = `translateY(${scrollY * 0.4}px)`;
-        textRef.current.style.opacity = `${opacity}`;
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section className="relative w-full min-h-[90vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden bg-deepBlue">
+    <section className="sticky top-0 w-full h-screen flex items-center justify-center overflow-hidden bg-deepBlue">
       
       {/* 1. Background Atmosphere - Deep and Calm */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -61,7 +44,7 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
-          <div ref={textRef} className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-6 md:pt-0">
+          <div className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left pt-6 md:pt-0">
             
             {/* Group Title and Badge for tight visual connection */}
             <div className="flex flex-col items-center lg:items-start gap-2">
