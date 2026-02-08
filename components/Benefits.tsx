@@ -23,7 +23,7 @@ const Benefits: React.FC = () => {
 
              <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-16 items-center">
                 <div className="lg:w-3/5 text-center lg:text-left">
-                   <h2 className="text-4xl md:text-5xl xl:text-6xl font-heading font-black text-white mb-8 md:mb-10 leading-tight tracking-tight drop-shadow-md">
+                   <h2 className="text-4xl lg:text-5xl font-heading font-black text-white mb-8 md:mb-10 leading-tight tracking-tight drop-shadow-md">
                      Ihr Vorteil: <br/>
                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentBlue to-accentCyan">Wettbewerbsvorsprung.</span>
                    </h2>
