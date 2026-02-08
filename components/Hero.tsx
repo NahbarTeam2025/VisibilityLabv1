@@ -7,10 +7,10 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="sticky top-0 w-full h-screen overflow-hidden bg-deepBlue">
+    <section className="sticky top-0 w-full min-h-screen bg-deepBlue">
       
       {/* 1. Background Atmosphere - Deep and Calm */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Subtle Gradient Spotlights */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accentBlue/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-accentPurple/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 h-full flex flex-col lg:justify-center">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center pt-24 lg:pt-0">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center py-24 lg:py-0">
           
           {/* Left Column: Text Content */}
           <div className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left">
