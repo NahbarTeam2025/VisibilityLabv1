@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
         </span>
       </div>
 
-      <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-start lg:justify-center">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center py-24 lg:py-0">
+      <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-start">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center pt-28 sm:pt-32 md:pt-40 pb-16 sm:pb-20">
           
           {/* Left Column: Text Content */}
           <div className="order-2 lg:order-1 space-y-4 md:space-y-6 text-center lg:text-left">
