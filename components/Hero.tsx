@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="sticky top-0 w-full min-h-screen bg-deepBlue flex flex-col justify-start lg:justify-center">
+    <section className="sticky top-0 w-full min-h-screen bg-deepBlue flex flex-col">
       
       {/* 1. Background Atmosphere - Deep and Calm */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
         </span>
       </div>
 
-      <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8 flex-grow flex flex-col justify-start lg:justify-center">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center py-24 lg:py-0">
           
           {/* Left Column: Text Content */}
