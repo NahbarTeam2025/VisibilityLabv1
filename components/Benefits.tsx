@@ -21,8 +21,8 @@ const Benefits: React.FC = () => {
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 transition-all duration-1000 group-hover:bg-blue-500/30"></div>
              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/3 transition-all duration-1000 group-hover:bg-purple-500/30"></div>
 
-             <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-                <div className="lg:w-1/2 text-center lg:text-left">
+             <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-16 items-center">
+                <div className="lg:w-3/5 text-center lg:text-left">
                    <h2 className="text-4xl md:text-5xl xl:text-6xl font-heading font-black text-white mb-8 md:mb-10 leading-tight tracking-tight drop-shadow-md">
                      Ihr Vorteil: <br/>
                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentBlue to-accentCyan">Wettbewerbsvorsprung.</span>
@@ -32,7 +32,7 @@ const Benefits: React.FC = () => {
                    </p>
                 </div>
 
-                <div className="lg:w-1/2 w-full">
+                <div className="lg:w-2/5 w-full">
                    <ul className="space-y-4">
                      {benefits.map((benefit, index) => (
                        <li key={index} className="flex items-center gap-6 bg-white/5 backdrop-blur-md p-5 rounded-2xl border border-white/10 hover:border-accentBlue/50 hover:bg-white/10 transition-all duration-300 hover:translate-x-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group/item cursor-default">
