@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 md:pt-6 justify-center lg:justify-start reveal reveal-delay-400">
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 md:pt-6 justify-center lg:justify-start">
               <button 
                 onClick={scrollToContact}
                 className="group relative w-full sm:w-auto px-8 py-4 bg-accentBlue text-white font-bold rounded-xl overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:-translate-y-1 active:scale-95"
@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
 
           {/* Right Column: "The Digital Lens" Animation */}
           {/* Reduced height on mobile to ensure text is visible above fold */}
-          <div className="order-1 lg:order-2 relative flex justify-center items-center h-[320px] md:h-[500px] reveal reveal-delay-200 perspective-1000">
+          <div className="order-1 lg:order-2 relative flex justify-center items-center h-[320px] md:h-[500px] reveal reveal-delay-200 perspective-1000 lg:-mt-12">
              
              {/* Main Container for the Visual - Slightly smaller on mobile */}
              <div className="relative w-[280px] h-[280px] md:w-[450px] md:h-[450px]">
