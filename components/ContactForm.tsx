@@ -62,12 +62,16 @@ const ContactForm: React.FC = () => {
             </p>
           </div>
 
-          <div className="glass-panel p-8 md:p-14 rounded-[2.5rem] border border-white/10 shadow-2xl reveal reveal-delay-200 relative overflow-hidden bg-slate-800/30 backdrop-blur-2xl">
+          <div className="group glass-panel p-8 md:p-14 rounded-[2.5rem] border border-white/10 shadow-2xl reveal reveal-delay-200 relative overflow-hidden bg-slate-800/30 backdrop-blur-2xl">
+            {/* Decorative Background Blobs */}
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accentBlue/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 transition-all duration-1000 group-hover:bg-accentBlue/30 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accentPurple/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 transition-all duration-1000 group-hover:bg-accentPurple/30 pointer-events-none"></div>
+
             {/* Subtle inner reflection */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             
             {status === 'success' ? (
-              <div className="text-center py-12 animate-pulse-glow-purple flex flex-col items-center">
+              <div className="text-center py-12 animate-pulse-glow-purple flex flex-col items-center relative z-10">
                 <div className="w-24 h-24 bg-gradient-to-br from-green-500/20 to-green-500/5 text-green-400 rounded-full flex items-center justify-center mb-8 border border-green-500/30 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
                   <CheckCircle className="w-12 h-12" />
                 </div>
@@ -85,7 +89,7 @@ const ContactForm: React.FC = () => {
             ) : (
               <form 
                 onSubmit={handleSubmit} 
-                className="w-full space-y-8"
+                className="w-full space-y-8 relative z-10"
                 name="contact"
                 method="POST"
                 data-netlify="true"

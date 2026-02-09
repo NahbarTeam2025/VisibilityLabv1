@@ -36,15 +36,15 @@ const SolutionSection: React.FC = () => {
           {solutions.map((item, index) => (
             <div 
               key={index}
-              className={`group glass-panel p-8 rounded-3xl hover:bg-slate-800/60 transition-all duration-300 hover:-translate-y-2 reveal reveal-delay-${(index % 4) * 100}`}
+              className={`glass-card-hover p-8 rounded-3xl h-full flex flex-col items-start reveal reveal-delay-${(index % 4) * 100}`}
             >
-              <div className="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-accentBlue icon-hover group-hover:text-accentCyan group-hover:scale-110 shadow-lg">
-                {React.cloneElement(item.icon as React.ReactElement, { className: "w-7 h-7" })}
+              <div className="mb-6 p-4 rounded-2xl bg-slate-800/50 border border-white/5 shadow-inner icon-hover">
+                {React.cloneElement(item.icon as React.ReactElement, { className: "w-8 h-8 text-accentBlue" })}
               </div>
-              <h3 className="text-lg font-bold text-white mb-3 group-hover:text-accentCyan transition-colors tracking-tight">
+              <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">
                 {item.title}
               </h3>
-              <p className="text-base text-slate-400 leading-relaxed group-hover:text-slate-200 font-light">
+              <p className="text-lg text-slate-400 font-light leading-relaxed">
                 {item.desc}
               </p>
             </div>
