@@ -68,19 +68,15 @@ const Hero: React.FC = () => {
 
             {/* Headline - Removed 'reveal' class so it's visible immediately */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tight leading-[1.1] text-white mt-2 hidden sm:block">
-              Sichtbarkeit durch <span className="relative inline-block text-white">
+              Sichtbarkeit durch <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentBlue to-accentCyan">
                 System.
-                {/* Underline decoration */}
-                <svg className="absolute w-full h-3 bottom-0 left-0 text-accentBlue opacity-80" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                </svg>
               </span><br/>
               Strukturieren Sie Ihren digitalen Erfolg.
             </h1>
             
             {/* Mobile simplified headline - Removed 'reveal' class */}
             <h1 className="text-4xl font-heading font-black tracking-tight leading-[1.1] text-white mt-2 sm:hidden">
-              Sichtbarkeit durch <span className="text-accentBlue">System.</span>
+              Sichtbarkeit durch <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentBlue to-accentCyan">System.</span>
             </h1>
 
             {/* Subline */}
