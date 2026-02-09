@@ -15,7 +15,7 @@ const Benefits: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Main Glass Container */}
-          <div className="relative glass-panel rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-20 lg:p-28 overflow-hidden reveal hover:border-white/20 transition-all duration-500 shadow-2xl group">
+          <div className="relative glass-panel rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 lg:p-24 overflow-hidden reveal hover:border-white/20 transition-all duration-500 shadow-2xl group">
              
              {/* Decorative Background Blobs within card */}
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 transition-all duration-1000 group-hover:bg-blue-500/30"></div>
@@ -23,7 +23,7 @@ const Benefits: React.FC = () => {
 
              <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-16 items-center">
                 <div className="lg:w-3/5 text-center lg:text-left">
-                   <h2 className="text-4xl lg:text-5xl font-heading font-black text-white mb-8 md:mb-10 leading-tight tracking-tight drop-shadow-md">
+                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-white mb-8 md:mb-10 leading-tight tracking-tight drop-shadow-md">
                      Ihr Vorteil: <br/>
                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-accentBlue to-accentCyan">Wettbewerbsvorsprung.</span>
                    </h2>
