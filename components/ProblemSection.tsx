@@ -6,22 +6,22 @@ const ProblemSection: React.FC = () => {
     {
       icon: <AlertTriangle className="w-8 h-8 text-red-400" />,
       title: "Chaos Struktur",
-      text: "Nutzer verlieren sich in unstrukturierten Menüs. Hohe Absprungraten sind die Folge.",
+      text: "Nutzer verlieren sich in unstrukturierten Menüs. Hohe Absprungraten sind die Folge, wenn die Website-Navigation unklar ist.",
     },
     {
       icon: <SearchX className="w-8 h-8 text-orange-400" />,
       title: "Unsichtbar",
-      text: "Trotz guter Inhalte werden Sie bei Google nicht gefunden. Der Traffic bleibt aus.",
+      text: "Trotz guter Inhalte werden Sie bei Google nicht gefunden, weil die richtigen Keywords und die nötige Autorität fehlen.",
     },
     {
       icon: <MapPinOff className="w-8 h-8 text-pink-400" />,
       title: "Lokal Verloren",
-      text: "Lokale Kunden finden eher Ihre Konkurrenz als Sie. Umsatz geht verloren.",
+      text: "Lokale Kunden finden Ihre Konkurrenz. Wichtiger Umsatz geht verloren, weil Ihr Google Business Profil nicht optimiert ist.",
     },
     {
       icon: <Bot className="w-8 h-8 text-blue-400" />,
       title: "KI-Blind",
-      text: "ChatGPT & Co. können Ihre Informationen nicht verarbeiten. Sie existieren im 'KI-Web' nicht.",
+      text: "ChatGPT & Co. können Ihre Informationen nicht verarbeiten. Sie verpassen die Zukunft der Suche.",
     },
   ];
 
@@ -43,6 +43,9 @@ const ProblemSection: React.FC = () => {
             Erkennen Sie sich wieder?
           </h2>
           <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto">
+            Entwickelt für KMU, Organisationen und Kommunen, die digitale Komplexität in einen klaren Wettbewerbsvorteil verwandeln wollen.
+          </p>
+          <p className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mt-4">
             Viele Organisationen haben wertvolles Wissen, aber es ist digital verschlossen. Das kostet Reichweite, Vertrauen und letztlich Umsatz.
           </p>
         </div>

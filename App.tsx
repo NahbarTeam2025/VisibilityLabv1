@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
+import HowItWorks from './components/HowItWorks';
 import SolutionSection from './components/SolutionSection';
 import CaseStudy from './components/CaseStudy';
 import WhyItWorks from './components/WhyItWorks';
 import Benefits from './components/Benefits';
 import Testimonial from './components/Testimonial';
+import AboutMe from './components/AboutMe';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -36,11 +38,13 @@ const App: React.FC = () => {
     <div className="bg-deepBlue text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden">
       <Hero />
       <ProblemSection />
+      <HowItWorks />
       <SolutionSection />
       <CaseStudy />
       <WhyItWorks />
       <Benefits />
       <Testimonial />
+      <AboutMe />
       <ContactForm />
       <Footer />
       <ScrollToTop />

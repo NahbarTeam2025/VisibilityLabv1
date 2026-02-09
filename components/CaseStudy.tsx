@@ -52,7 +52,7 @@ const CaseStudy: React.FC = () => {
                 <div className="absolute -left-1.5 top-2 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)] group-hover:scale-125 transition-transform"></div>
                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Das Ergebnis</h3>
                 <p className="text-lg text-slate-400 font-light">
-                  Explosion der organischen Reichweite. Die Stadt ist nun für über 500 relevante Keywords auf Seite 1.
+                  Explosion der organischen Reichweite. Die Stadt ist nun für über 500 relevante Keywords auf Seite 1, was zu einer Verdreifachung qualifizierter Bürgeranfragen führte.
                 </p>
               </div>
             </div>

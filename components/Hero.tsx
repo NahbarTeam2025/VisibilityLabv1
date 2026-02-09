@@ -61,31 +61,31 @@ const Hero: React.FC = () => {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentPurple opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-accentPurple"></span>
                         </span>
-                        Next Level SEO Architecture
+                        Ihr System für digitale Dominanz
                     </div>
                 </div>
             </div>
 
             {/* Headline - Removed 'reveal' class so it's visible immediately */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black tracking-tight leading-[1.1] text-white mt-2 hidden sm:block">
-              Machen Sie Ihr <br/>
-              Business <span className="relative inline-block text-white">
-                sichtbar.
+              Sichtbarkeit durch <span className="relative inline-block text-white">
+                System.
                 {/* Underline decoration */}
                 <svg className="absolute w-full h-3 bottom-0 left-0 text-accentBlue opacity-80" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                 </svg>
-              </span>
+              </span><br/>
+              Strukturieren Sie Ihren digitalen Erfolg.
             </h1>
             
             {/* Mobile simplified headline - Removed 'reveal' class */}
             <h1 className="text-4xl font-heading font-black tracking-tight leading-[1.1] text-white mt-2 sm:hidden">
-              Machen Sie Ihr Business <span className="text-accentBlue">sichtbar.</span>
+              Sichtbarkeit durch <span className="text-accentBlue">System.</span>
             </h1>
 
             {/* Subline */}
             <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 reveal reveal-delay-300 mt-6">
-              Wir verwandeln komplexe Daten in klare Strukturen. Mit unserer Hub-and-Spoke Technologie dominieren Sie Ihre Nische – lokal und global.
+              VisibilityLab ist Ihr KI-gestütztes System, das komplexe Daten in eine klare Hub-and-Spoke Architektur verwandelt. Dominieren Sie Ihre Nische – lokal, global und im KI-Web der Zukunft.
             </p>
 
             {/* Buttons */}

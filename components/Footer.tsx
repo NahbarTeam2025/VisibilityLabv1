@@ -10,9 +10,14 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
           
-          {/* Copyright */}
+          {/* Copyright & NAP */}
           <div className="text-slate-400 text-xs md:text-sm font-light tracking-wide order-3 md:order-1 text-center md:text-left">
-            &copy; {new Date().getFullYear()} <span className="text-slate-200 font-semibold">VisibilityLab</span>. Alle Rechte vorbehalten.
+            <div>
+              &copy; {new Date().getFullYear()} <span className="text-slate-200 font-semibold">VisibilityLab</span>. Alle Rechte vorbehalten.
+            </div>
+            <div className="mt-2 text-slate-500 text-xs">
+              VisibilityLab by Robert Erbach | Musterstraße 1 | 12345 Musterstadt
+            </div>
           </div>
           
           {/* Social */}
