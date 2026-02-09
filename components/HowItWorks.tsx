@@ -21,7 +21,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-slate-900 relative">
+    <section className="py-24 md:py-32 bg-slate-900/90 backdrop-blur-sm relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent h-1/3 bottom-0"></div>
 

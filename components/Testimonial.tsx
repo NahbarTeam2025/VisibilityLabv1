@@ -3,7 +3,7 @@ import { Quote } from 'lucide-react';
 
 const Testimonial: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 lg:py-48 relative flex items-center justify-center overflow-hidden bg-slate-900 group">
+    <section className="py-24 md:py-32 lg:py-48 relative flex items-center justify-center overflow-hidden bg-slate-900/90 backdrop-blur-sm group">
       {/* Central glow - reactive to hover */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] aspect-square bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 rounded-full blur-[120px] opacity-60 transition-all duration-700 group-hover:opacity-80 group-hover:scale-110"></div>
       

@@ -35,7 +35,10 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-deepBlue text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden">
+    <div className="text-white font-sans selection:bg-accentPurple selection:text-white overflow-x-hidden relative">
+      {/* GLOBAL DYNAMIC BACKGROUND */}
+      <div className="fixed inset-0 z-[-1] bg-[size:400%_400%] animate-gradient-xy bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#170e2e]"></div>
+      
       <Hero />
       <ProblemSection />
       <HowItWorks />

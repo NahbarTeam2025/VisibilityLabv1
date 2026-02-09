@@ -3,9 +3,9 @@ import { TrendingUp, ArrowRight } from 'lucide-react';
 
 const CaseStudy: React.FC = () => {
   return (
-    <section id="case-study" className="py-24 md:py-32 lg:py-40 relative bg-slate-900">
+    <section id="case-study" className="py-24 md:py-32 lg:py-40 relative bg-slate-900/80 backdrop-blur-md">
       {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#1e293b] to-slate-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#1e293b]/50 to-transparent"></div>
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accentPurple/10 rounded-full blur-[100px] pointer-events-none"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">

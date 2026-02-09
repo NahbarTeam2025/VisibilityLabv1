@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="sticky top-0 w-full min-h-screen bg-deepBlue flex flex-col">
+    <section className="sticky top-0 w-full min-h-screen flex flex-col bg-transparent">
       
       {/* 1. Background Atmosphere - Deep and Calm */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

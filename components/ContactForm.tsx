@@ -42,9 +42,9 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 lg:py-40 bg-slate-900 relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-32 lg:py-40 bg-slate-900/90 backdrop-blur-md relative overflow-hidden">
       {/* Background Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-slate-900 to-slate-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
       <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accentPurple/10 rounded-full blur-[100px] pointer-events-none translate-y-1/2 translate-x-1/2"></div>
 

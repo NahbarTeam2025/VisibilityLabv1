@@ -14,7 +14,7 @@ const SolutionSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 lg:py-40 relative overflow-hidden bg-slate-900">
+    <section className="py-24 md:py-32 lg:py-40 relative overflow-hidden bg-slate-900/90 backdrop-blur-sm">
       {/* Mesh Gradient Background */}
       <div className="absolute inset-0 bg-mesh opacity-40"></div>
       <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-slate-900 to-transparent"></div>

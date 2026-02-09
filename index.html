@@ -4,11 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VisibilityLab – SEO & GEO Content-System | Falkenberg/Elster Case Study</title>
-    <meta name="description" content="Erfahren Sie, wie Falkenberg/Elster mit VisibilityLab seine digitale Sichtbarkeit steigern konnte. Strukturierte Inhalte, GEO-Optimierung, nachhaltige Ergebnisse." />
+    <meta name="description" content="VisibilityLab von Robert Erbach: Ihr KI-gestütztes System für digitale Dominanz. Hub-and-Spoke Architektur und GEO-Optimierung für KMU und Kommunen." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://visibilitylab.de/" />
+    <meta property="og:title" content="VisibilityLab – Sichtbarkeit durch System" />
+    <meta property="og:description" content="Verwandeln Sie digitale Komplexität in Wettbewerbsvorteile. SEO, GEO-Targeting und Content-Strategie von Robert Erbach." />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Performance: Preload Critical Assets -->
+    <link rel="preload" as="image" href="https://grainy-gradients.vercel.app/noise.svg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://visibilitylab.de/#organization",
+          "name": "VisibilityLab",
+          "founder": {
+            "@type": "Person",
+            "name": "Robert Erbach",
+            "jobTitle": "Founder & Digital Strategist"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstraße 1",
+            "addressLocality": "Musterstadt",
+            "postalCode": "12345",
+            "addressCountry": "DE"
+          },
+          "description": "VisibilityLab ist ein spezialisiertes System für SEO, GEO-Optimierung und Hub-and-Spoke Content-Architektur. Wir helfen KMU und Kommunen, digitale Dominanz aufzubauen.",
+          "priceRange": "$$",
+          "knowsAbout": [
+            "Search Engine Optimization",
+            "Hub and Spoke Content Strategy",
+            "Local SEO",
+            "Google Business Profile Optimization",
+            "AI Content Generation"
+          ],
+          "areaServed": {
+            "@type": "Country",
+            "name": "Germany"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://visibilitylab.de/#website",
+          "url": "https://visibilitylab.de/",
+          "name": "VisibilityLab Landing Page",
+          "publisher": {
+            "@id": "https://visibilitylab.de/#organization"
+          },
+          "inLanguage": "de-DE"
+        },
+        {
+          "@type": "Service",
+          "name": "Visibility-Analyse",
+          "provider": {
+            "@id": "https://visibilitylab.de/#organization"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "description": "Kostenlose Analyse der aktuellen digitalen Sichtbarkeit und Identifikation von Wachstumspotenzialen."
+          }
+        }
+      ]
+    }
+    </script>
+
     <script>
       tailwind.config = {
         theme: {
@@ -36,6 +110,7 @@
               'dash': 'dash 1.5s linear infinite', 
               'shine': 'shine 1.5s infinite',
               'gradient': 'gradient 8s linear infinite',
+              'gradient-xy': 'gradient-xy 15s ease infinite',
               'pulse-glow-blue': 'pulse-glow-blue 3s infinite',
               'pulse-glow-purple': 'pulse-glow-purple 3s infinite',
             },
@@ -72,6 +147,16 @@
                   'background-position': 'right center'
                 },
               },
+              'gradient-xy': {
+                '0%, 100%': {
+                  'background-size': '400% 400%',
+                  'background-position': 'left top'
+                },
+                '50%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'right bottom'
+                }
+              },
               'pulse-glow-blue': {
                 '0%, 100%': { boxShadow: '0 0 15px rgba(59, 130, 246, 0.3)' },
                 '50%': { boxShadow: '0 0 35px rgba(59, 130, 246, 0.6)' },
@@ -90,6 +175,9 @@
         background-color: #020617;
         color: white;
         overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
       html {
         scroll-behavior: smooth;
@@ -102,6 +190,8 @@
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        /* Performance hint */
+        will-change: transform;
       }
       
       .glass-card-hover {
@@ -110,6 +200,8 @@
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.05);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Performance hint */
+        will-change: transform, background-color, border-color, box-shadow;
       }
       
       .glass-card-hover:hover {
@@ -124,6 +216,7 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: #fff;
+        transition: all 0.3s ease;
       }
       
       .glass-input:focus {
@@ -132,7 +225,7 @@
         box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);
       }
 
-      /* Refined Scroll Reveal */
+      /* Refined Scroll Reveal with GPU acceleration */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
@@ -151,6 +244,7 @@
       
       .icon-hover {
         transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        will-change: transform;
       }
       
       /* Subtle mesh gradient background utility */

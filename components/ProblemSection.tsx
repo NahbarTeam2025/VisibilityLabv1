@@ -26,9 +26,9 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Lighter Background with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-deepBlue via-[#0f172a] to-[#1e293b]"></div>
+    <section className="py-24 md:py-32 relative overflow-hidden bg-slate-900/80 backdrop-blur-md">
+      {/* Lighter Background with Gradient - made subtle to blend with global bg */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0f172a]/80 to-[#1e293b]/80"></div>
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
       
       {/* Ambient Light */}

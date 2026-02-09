@@ -11,7 +11,7 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 lg:py-40 relative overflow-hidden bg-slate-900">
+    <section className="py-24 md:py-32 lg:py-40 relative overflow-hidden bg-slate-900/80 backdrop-blur-md">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Main Glass Container */}

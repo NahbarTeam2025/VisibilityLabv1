@@ -3,7 +3,7 @@ import { User } from 'lucide-react';
 
 const AboutMe: React.FC = () => {
     return (
-        <section className="py-24 md:py-32 bg-deepBlue relative">
+        <section className="py-24 md:py-32 bg-transparent relative">
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="max-w-5xl mx-auto glass-panel p-8 md:p-12 rounded-[2.5rem] reveal">
                     <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
