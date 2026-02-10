@@ -9,7 +9,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "ProfessionalService",
       "name": "VisibilityLab",
       "alternateName": "VisibilityLab – SEO & GEO Content-System",
       "url": "https://www.visibilitylab.de",
@@ -34,48 +34,52 @@
         "areaServed": "DE",
         "availableLanguage": "German"
       },
-      "hasOffer": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Suchmaschinenoptimierung (SEO)",
-            "description": "Ganzheitliche SEO-Strategien zur Verbesserung der organischen Suchrankings."
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dienstleistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Suchmaschinenoptimierung (SEO)",
+              "description": "Ganzheitliche SEO-Strategien zur Verbesserung der organischen Suchrankings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "GEO-Optimierung (Lokales SEO)",
+              "description": "Dominanz in der lokalen Suche zur Gewinnung von Kunden in Ihrer Nähe."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hub-and-Spoke Content Architektur",
+              "description": "Aufbau von Themenautorität durch eine logische, sternförmige Inhaltsstruktur."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website- & Marktanalyse",
+              "description": "Detaillierte Analyse des Ist-Zustands von Website, Markt und Wettbewerb."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technisches SEO",
+              "description": "Optimierung von Core Web Vitals und Implementierung von strukturierten Daten."
+            }
           }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "GEO-Optimierung (Lokales SEO)",
-            "description": "Dominanz in der lokalen Suche zur Gewinnung von Kunden in Ihrer Nähe."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Hub-and-Spoke Content Architektur",
-            "description": "Aufbau von Themenautorität durch eine logische, sternförmige Inhaltsstruktur."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Website- & Marktanalyse",
-            "description": "Detaillierte Analyse des Ist-Zustands von Website, Markt und Wettbewerb."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Technisches SEO",
-            "description": "Optimierung von Core Web Vitals und Implementierung von strukturierten Daten."
-          }
-        }
-      ],
+        ]
+      },
       "potentialAction": {
         "@type": "RequestAction",
         "name": "Kostenlose Visibility-Analyse anfordern",
