@@ -1,54 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
+    const toggle = () => setIsVisible(window.scrollY > 300);
+    window.addEventListener('scroll', toggle);
+    return () => window.removeEventListener('scroll', toggle);
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <button
-      onClick={scrollToTop}
-      aria-label="Nach oben scrollen"
-      className={`
-        fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 
-        p-3 md:p-4 rounded-full 
-        bg-slate-800/80 backdrop-blur-md 
-        border border-white/10 
-        shadow-[0_0_20px_rgba(0,0,0,0.5)] 
-        text-white 
-        transition-all duration-500 ease-out
-        hover:bg-accentBlue hover:border-accentBlue/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:-translate-y-1 
-        active:scale-90
-        group
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}
-      `}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      style={{
+        position: 'fixed',
+        bottom: '6.5rem',
+        right: '2rem',
+        padding: '1rem',
+        borderRadius: '50%',
+        backgroundColor: 'rgba(30, 41, 59, 0.8)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        color: 'white',
+        cursor: 'pointer',
+        display: isVisible ? 'block' : 'none',
+        zIndex: 100
+      }}
     >
-      <ArrowUp className="w-5 h-5 md:w-6 md:h-6 group-hover:animate-bounce" />
-      
-      {/* Glow Effect inside button */}
-      <div className="absolute inset-0 rounded-full bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m18 15-6-6-6 6"/></svg>
     </button>
   );
 };

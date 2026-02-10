@@ -1,47 +1,72 @@
 import React from 'react';
-import { Linkedin } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onLegalClick?: (type: 'impressum' | 'datenschutz' | 'kontakt') => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
   return (
-    <footer className="py-6 border-t border-white/5 bg-[#020617]/90 backdrop-blur-xl relative overflow-hidden">
-      {/* Subtle top glow line */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-          
-          {/* Copyright & NAP */}
-          <div className="text-slate-400 text-xs md:text-sm font-light tracking-wide order-3 md:order-1 text-center md:text-left">
-            <div>
-              &copy; {new Date().getFullYear()} <span className="text-slate-200 font-semibold">VisibilityLab</span>. Alle Rechte vorbehalten.
+    <footer style={{
+      padding: '2rem 0', // Reduzierter Padding für ein kompakteres Design
+      backgroundColor: '#0D1F33',
+      position: 'relative',
+      overflow: 'hidden',
+      borderTop: '1px solid rgba(255,255,255,0.05)'
+    }}>
+      <div className="container">
+        <div className="flex flex-col md-flex-row justify-between items-center gap-6">
+          {/* Logo & Info */}
+          <div className="flex items-center gap-2">
+            <div style={{ 
+              width: '20px', 
+              height: '20px', 
+              borderRadius: '4px', 
+              background: 'linear-gradient(135deg, #3b82f6, #06b6d4)', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center' 
+            }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
             </div>
-            <div className="mt-2 text-slate-500 text-xs">
-              VisibilityLab by Robert Erbach | Musterstraße 1 | 12345 Musterstadt
-            </div>
-          </div>
-          
-          {/* Social */}
-          <div className="order-1 md:order-2">
-            <a 
-              href="https://www.linkedin.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accentBlue/30 transition-all duration-300 shadow-sm hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]"
-              aria-label="LinkedIn Profil besuchen"
-            >
-              <Linkedin className="w-3.5 h-3.5 text-slate-400 group-hover:text-accentBlue transition-colors" />
-              <span className="text-xs font-medium text-slate-300 group-hover:text-white uppercase tracking-wider">Follow me</span>
-            </a>
+            <span style={{ fontSize: '1rem', fontWeight: '900' }}>VisibilityLab</span>
+            <span style={{ color: '#475569', fontSize: '0.75rem', marginLeft: '0.5rem', display: 'none', md: 'inline' }}>| Strategisches Wachstum</span>
           </div>
 
-          {/* Legal Links */}
-          <div className="flex gap-6 text-xs md:text-sm font-medium order-2 md:order-3 text-slate-400">
-             <a href="#" className="hover:text-white transition-colors hover:text-accentBlue transition-all duration-300">
-                Impressum
-             </a>
-             <a href="#" className="hover:text-white transition-colors hover:text-accentBlue transition-all duration-300">
-                Datenschutz
-             </a>
+          {/* Links */}
+          <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <button 
+              onClick={() => onLegalClick?.('impressum')}
+              style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#64748b', fontSize: '0.8rem', fontWeight: '600', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = '#3b82f6'}
+              onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
+            >
+              Impressum
+            </button>
+            <button 
+              onClick={() => onLegalClick?.('datenschutz')}
+              style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#64748b', fontSize: '0.8rem', fontWeight: '600', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = '#3b82f6'}
+              onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
+            >
+              Datenschutz
+            </button>
+            <button 
+              onClick={() => onLegalClick?.('kontakt')}
+              style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#64748b', fontSize: '0.8rem', fontWeight: '600', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = '#3b82f6'}
+              onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
+            >
+              Kontakt
+            </button>
+          </div>
+
+          {/* Copyright */}
+          <div style={{ fontSize: '0.75rem', color: '#475569', fontWeight: '500' }}>
+            &copy; {new Date().getFullYear()} VisibilityLab
           </div>
         </div>
       </div>

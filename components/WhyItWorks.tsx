@@ -1,64 +1,64 @@
 import React from 'react';
-import { ClipboardList, Zap, Scaling, PieChart } from 'lucide-react';
 
 const WhyItWorks: React.FC = () => {
   const reasons = [
     {
-      icon: <ClipboardList />,
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10"/><path d="M7 12h10"/><path d="M7 16h10"/></svg>,
       title: "Keine blinden Experimente",
-      desc: "Wir nutzen bewährte Frameworks und echte Daten, keine Vermutungen. Sicherheit für Ihr Budget."
+      desc: "Wir nutzen bewährte Frameworks und echte Daten, keine Vermutungen. Sicherheit für Ihr Budget.",
+      beamColor: "rgba(168, 85, 247, 0.6)",
+      duration: "4s"
     },
     {
-      icon: <Zap />,
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>,
       title: "KI-First Ansatz",
-      desc: "Wir optimieren für die Suchmaschinen von heute und die KI-Assistenten von morgen."
+      desc: "Wir optimieren für die Suchmaschinen von heute und die KI-Assistenten von morgen.",
+      beamColor: "rgba(59, 130, 246, 0.6)",
+      duration: "5s"
     },
     {
-      icon: <Scaling />,
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>,
       title: "Skalierbare Architektur",
-      desc: "Das Hub-and-Spoke System wächst mühelos mit Ihrem Unternehmen. Kein Flickenteppich mehr."
+      desc: "Das Hub-and-Spoke System wächst mühelos mit Ihrem Unternehmen. Kein Flickenteppich mehr.",
+      beamColor: "rgba(168, 85, 247, 0.4)",
+      duration: "6.5s"
     },
     {
-      icon: <PieChart />,
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
       title: "Totale Transparenz",
-      desc: "Sie sehen genau, was wir tun und was es bringt. Live-Dashboards, keine Blackbox."
+      desc: "Sie sehen genau, was wir tun und was es bringt. Live-Dashboards, keine Blackbox.",
+      beamColor: "rgba(59, 130, 246, 0.4)",
+      duration: "3.5s"
     }
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-slate-900/90 backdrop-blur-sm relative">
-      {/* Grid Pattern Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 md:mb-20 lg:mb-24 reveal">
-            <div className="inline-block px-4 py-2 mb-6 text-sm font-bold tracking-widest text-accentPurple uppercase bg-accentPurple/10 rounded-full border border-accentPurple/20 shadow-sm backdrop-blur-sm">
-              Philosophie
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-8 tracking-tight drop-shadow-lg">
-              Warum <span className="text-accentPurple">VisibilityLab</span> funktioniert
-            </h2>
+    <section className="py-32">
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+          <div style={{ display: 'inline-block', padding: '0.4rem 1rem', borderRadius: '2rem', fontSize: '0.7rem', fontWeight: '900', color: '#a855f7', backgroundColor: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            PHILOSOPHIE
           </div>
+          <h2 className="text-4xl font-black mb-6">Warum <span className="text-gradient-animated" style={{whiteSpace: 'nowrap'}}>VisibilityLab</span> funktioniert</h2>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {reasons.map((reason, index) => (
-              <div key={index} className={`flex gap-6 md:gap-8 items-start p-8 md:p-10 rounded-[2rem] glass-card-hover group reveal reveal-delay-${(index + 1) * 100} h-full`}>
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-slate-800/80 border border-white/10 flex items-center justify-center text-accentPurple shadow-lg group-hover:scale-110 group-hover:bg-accentPurple group-hover:text-white transition-all duration-300">
-                    {React.cloneElement(reason.icon as React.ReactElement, { className: "w-8 h-8" })}
-                  </div>
+        <div className="grid grid-cols-1 md-grid-cols-2 gap-8">
+          {reasons.map((reason, index) => (
+            <div key={index} className="glass-panel border-beam-card" style={{ 
+              padding: '2.5rem', 
+              borderRadius: '2rem',
+              ['--beam-color' as any]: reason.beamColor,
+              ['--beam-duration' as any]: reason.duration
+            }}>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ color: index % 2 === 0 ? '#a855f7' : '#3b82f6', marginBottom: '1.5rem', width: '56px', height: '56px', borderRadius: '12px', backgroundColor: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {reason.icon}
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accentPurple transition-colors tracking-tight">{reason.title}</h3>
-                  <p className="text-lg text-slate-400 leading-relaxed font-light group-hover:text-slate-300">
-                    {reason.desc}
-                  </p>
-                </div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>{reason.title}</h3>
+                <p style={{ color: '#94a3b8', fontWeight: '300', lineHeight: '1.6' }}>{reason.desc}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,119 +1,188 @@
-import React from 'react';
-import { TrendingUp, ArrowRight } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+
+// Erweiterte Komponente für animierte Zahlen (unterstützt Start- und Endwerte)
+const CountUp: React.FC<{ start?: number; end: number; suffix?: string; prefix?: string; duration?: number }> = ({ 
+  start = 0, 
+  end, 
+  suffix = '', 
+  prefix = '',
+  duration = 2000 
+}) => {
+  const [count, setCount] = useState(start);
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      
+      // Easing function für smoothes Hoch/Runterzählen (easeOutExpo)
+      const easeVal = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      
+      // Berechnung basierend auf Start- und Endwert
+      const currentCount = start + (end - start) * easeVal;
+      setCount(Math.round(currentCount));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    requestAnimationFrame(animate);
+  }, [isVisible, start, end, duration]);
+
+  return <span ref={ref}>{prefix}{count}{suffix}</span>;
+};
 
 const CaseStudy: React.FC = () => {
   return (
-    <section id="case-study" className="py-24 md:py-32 lg:py-40 relative bg-slate-900/80 backdrop-blur-md">
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#1e293b]/50 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accentPurple/10 rounded-full blur-[100px] pointer-events-none"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+    <section id="case-study" className="py-32">
+      <div className="container">
+        {/* Main Grid: Wraps everything for correct alignment */}
+        <div className="grid grid-cols-1 md-grid-cols-2 gap-12 md-items-start lg-gap-16">
           
-          {/* Left Content */}
-          <div className="lg:w-1/2 space-y-10 lg:space-y-12 reveal">
+          {/* Left Column: Contains both the intro and the story points */}
+          <div className="flex flex-col gap-12 md-gap-20">
+            {/* Intro Text */}
             <div>
-              <div className="inline-block px-4 py-2 rounded-full bg-accentPurple/10 border border-accentPurple/30 text-accentPurple text-sm font-bold tracking-widest uppercase mb-6 md:mb-8 shadow-sm backdrop-blur-md">
-                Case Study
+              <div style={{ display: 'inline-block', padding: '0.4rem 1rem', borderRadius: '2rem', fontSize: '0.7rem', fontWeight: '900', color: '#a855f7', backgroundColor: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                CASE STUDY
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-heading font-black text-white leading-tight mb-6 md:mb-8 tracking-tighter drop-shadow-xl">
-                Falkenberg/Elster
-              </h2>
-              <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
+              <h2 className="font-black mb-8" style={{ fontSize: 'clamp(2.25rem, 10vw, 4rem)', lineHeight: 1.1, whiteSpace: 'nowrap' }}>Falkenberg/Elster</h2>
+              <p style={{ color: '#cbd5e1', fontSize: '1.25rem', lineHeight: '1.7', maxWidth: '40rem' }}>
                 Wie eine Stadtverwaltung von digitaler Unsichtbarkeit zu einer modernen Informationsdrehscheibe wurde.
               </p>
             </div>
-
-            <div className="space-y-8 lg:space-y-10">
-              {/* Point 1 */}
-              <div className="relative pl-10 group cursor-default">
-                <div className="absolute left-0 top-2 w-[1px] h-full bg-gradient-to-b from-red-500/50 to-transparent"></div>
-                <div className="absolute -left-1.5 top-2 w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)] group-hover:scale-125 transition-transform"></div>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">Die Herausforderung</h3>
-                <p className="text-lg text-slate-400 font-light">
-                  Wichtige Bürgerinformationen waren tief in PDF-Strukturen vergraben. Google-Rankings existierten für relevante lokale Begriffe kaum.
-                </p>
+            
+            {/* Story Points */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+              <div style={{ display: 'flex', gap: '1.5rem' }}>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#f87171', marginTop: '8px', flexShrink: 0 }}></div>
+                <div>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Die Herausforderung</h3>
+                  <p style={{ color: '#94a3b8', fontWeight: '300', lineHeight: '1.7', fontSize: '1.1rem' }}>
+                    Wichtige Bürgerinformationen waren tief in PDF-Strukturen vergraben. Google-Rankings existierten für relevante lokale Begriffe kaum.
+                  </p>
+                </div>
               </div>
-
-              {/* Point 2 */}
-              <div className="relative pl-10 group cursor-default">
-                <div className="absolute left-0 top-2 w-[1px] h-full bg-gradient-to-b from-accentBlue/50 to-transparent"></div>
-                <div className="absolute -left-1.5 top-2 w-3 h-3 rounded-full bg-accentBlue shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-transform"></div>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accentBlue transition-colors">Die Lösung</h3>
-                <p className="text-lg text-slate-400 font-light">
-                  Implementierung einer Hub-and-Spoke Architektur. Aufbrechen von PDFs in indexierbare Web-Inhalte. GEO-Targeting für umliegende Gemeinden.
-                </p>
+              
+              <div style={{ display: 'flex', gap: '1.5rem' }}>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#3b82f6', marginTop: '8px', flexShrink: 0 }}></div>
+                <div>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Die Lösung</h3>
+                  <p style={{ color: '#94a3b8', fontWeight: '300', lineHeight: '1.7', fontSize: '1.1rem' }}>
+                    Implementierung einer Hub-and-Spoke Architektur. Aufbrechen von PDFs in indexierbare Web-Inhalte. GEO-Targeting für umliegende Gemeinden.
+                  </p>
+                </div>
               </div>
-
-              {/* Point 3 */}
-              <div className="relative pl-10 group cursor-default">
-                <div className="absolute left-0 top-2 w-[1px] h-full bg-gradient-to-b from-green-500/50 to-transparent"></div>
-                <div className="absolute -left-1.5 top-2 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)] group-hover:scale-125 transition-transform"></div>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Das Ergebnis</h3>
-                <p className="text-lg text-slate-400 font-light">
-                  Explosion der organischen Reichweite. Die Stadt ist nun für über 500 relevante Keywords auf Seite 1, was zu einer Verdreifachung qualifizierter Bürgeranfragen führte.
-                </p>
+              
+              <div style={{ display: 'flex', gap: '1.5rem' }}>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#10b981', marginTop: '8px', flexShrink: 0 }}></div>
+                <div>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Das Ergebnis</h3>
+                  <p style={{ color: '#94a3b8', fontWeight: '300', lineHeight: '1.7', fontSize: '1.1rem' }}>
+                    Explosion der organischen Reichweite. Die Stadt ist nun für über 500 relevante Keywords auf Seite 1, was zu einer Verdreifachung qualifizierter Bürgeranfragen führte.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Visual/Stats */}
-          <div className="lg:w-1/2 w-full reveal reveal-delay-200">
-            <div className="relative group cursor-default">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-accentBlue to-accentPurple rounded-[2.5rem] blur opacity-30 group-hover:opacity-60 transition-opacity duration-700"></div>
+          {/* Right Column: Stats Dashboard */}
+          <div style={{ 
+            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.05))', 
+            padding: '3rem', 
+            borderRadius: '2.5rem',
+            border: '1px solid rgba(255,255,255,0.05)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: 'rgba(59, 130, 246, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+              </div>
+              <h4 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Live Impact</h4>
+            </div>
+
+            <div style={{ display: 'grid', gap: '2rem' }}>
+              {/* Sichtbarkeit Kachel */}
+              <div className="glass-panel border-beam-card" style={{ 
+                padding: '2.5rem', 
+                borderRadius: '1.5rem', 
+                display: 'flex', 
+                flexDirection: 'column',
+                justifyContent: 'center', 
+                alignItems: 'center',
+                textAlign: 'center',
+                ['--beam-color' as any]: 'rgba(59, 130, 246, 0.7)',
+                ['--beam-duration' as any]: '2.5s'
+              }}>
+                <div>
+                  <div style={{ fontSize: '4rem', fontWeight: '900', lineHeight: '1' }}>+<CountUp end={240} suffix="%" /></div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: '900', color: '#3b82f6', letterSpacing: '0.15em', marginTop: '0.75rem', textTransform: 'uppercase' }}>SICHTBARKEIT</div>
+                </div>
+              </div>
               
-              <div className="relative glass-panel rounded-[2.5rem] p-8 md:p-12 border border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
-                <div className="flex justify-between items-end mb-10 md:mb-12">
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-4 tracking-tight group/title">
-                      <div className="p-2.5 rounded-xl bg-green-500/10 border border-green-500/20">
-                        <TrendingUp className="text-green-400 w-7 h-7" />
-                      </div>
-                      Wachstum
-                    </h3>
-                    <p className="text-slate-400 mt-2 font-medium ml-1">Vergleich: Vorher vs. Nachher</p>
-                  </div>
-                  <div className="text-right hidden sm:block">
-                    <span className="text-xs font-mono text-slate-500 bg-slate-800/50 border border-white/10 px-3 py-1.5 rounded tracking-wider">PERIOD: 12 MONTHS</span>
-                  </div>
+              {/* Lokale Rankings Kachel */}
+              <div className="glass-panel border-beam-card" style={{ 
+                padding: '2.5rem', 
+                borderRadius: '1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                ['--beam-color' as any]: 'rgba(168, 85, 247, 0.7)',
+                ['--beam-duration' as any]: '4s'
+              }}>
+                <div style={{ fontSize: '3.5rem', fontWeight: '900', lineHeight: '1' }}>
+                  <CountUp start={20} end={3} prefix="Top " />
                 </div>
-                
-                <div className="grid grid-cols-2 gap-4 md:gap-6">
-                  {/* Stat Card 1 */}
-                  <div className="col-span-2 sm:col-span-1 bg-gradient-to-br from-slate-800/40 to-slate-900/40 hover:from-slate-800/60 hover:to-accentBlue/20 p-6 rounded-2xl border border-white/5 relative overflow-hidden group/card transition-all duration-500 hover:border-accentBlue/30 hover:translate-y-[-2px] hover:shadow-lg">
-                    <div className="absolute right-0 top-0 p-4 opacity-10 group-hover/card:opacity-30 transition-opacity">
-                      <ArrowRight className="w-12 h-12 text-accentBlue" />
-                    </div>
-                    <div className="text-5xl font-black text-white mb-2 tracking-tighter transition-transform duration-500 group-hover/card:scale-105 origin-left">+240%</div>
-                    <div className="text-xs font-bold text-accentBlue tracking-widest uppercase">Sichtbarkeit</div>
-                  </div>
+                <div style={{ fontSize: '0.9rem', fontWeight: '900', color: '#a855f7', letterSpacing: '0.15em', marginTop: '0.75rem', textTransform: 'uppercase' }}>LOKALE RANKINGS</div>
+              </div>
 
-                  {/* Stat Card 2 */}
-                  <div className="col-span-2 sm:col-span-1 bg-gradient-to-br from-slate-800/40 to-slate-900/40 hover:from-slate-800/60 hover:to-accentPurple/20 p-6 rounded-2xl border border-white/5 group/card transition-all duration-500 hover:border-accentPurple/30 hover:translate-y-[-2px] hover:shadow-lg">
-                    <div className="text-5xl font-black text-white mb-2 tracking-tighter transition-transform duration-500 group-hover/card:scale-105 origin-left">Top 3</div>
-                    <div className="text-xs font-bold text-accentPurple tracking-widest uppercase">Lokale Rankings</div>
-                  </div>
-
-                  {/* Stat Card 3 (Wide) */}
-                  <div className="col-span-2 bg-gradient-to-r from-slate-800/60 to-slate-800/30 hover:from-slate-800 hover:to-slate-700/50 p-6 rounded-2xl border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0 text-center sm:text-left transition-all duration-500 hover:border-white/20">
-                    <div>
-                      <div className="text-4xl font-black text-white mb-1 group-hover:text-red-400 transition-colors duration-300">-45%</div>
-                      <div className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Absprungrate</div>
-                    </div>
-                    <div className="hidden sm:block h-10 w-[1px] bg-white/10 mx-4"></div>
-                    <div>
-                      <div className="text-4xl font-black text-white mb-1 group-hover:text-green-400 transition-colors duration-300">100%</div>
-                      <div className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">KI-Ready</div>
-                    </div>
-                  </div>
+              {/* Mini Kacheln */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                <div className="glass-panel border-beam-card" style={{ 
+                  padding: '1.5rem', 
+                  borderRadius: '1.5rem', 
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  ['--beam-color' as any]: 'rgba(203, 213, 225, 0.3)',
+                  ['--beam-duration' as any]: '6s'
+                }}>
+                  <div style={{ fontSize: '2.25rem', fontWeight: '900' }}>-<CountUp end={45} suffix="%" /></div>
+                  <div style={{ fontSize: '0.65rem', fontWeight: '900', color: '#cbd5e1', letterSpacing: '0.1em', marginTop: '0.25rem' }}>ABSPRUNGRATE</div>
                 </div>
-
-                <div className="mt-10 pt-6 border-t border-white/5">
-                  <blockquote className="text-slate-300 text-lg italic border-l-2 border-accentBlue pl-6 py-1 font-light">
-                    "VisibilityLab hat unsere digitale Präsenz nicht nur repariert, sondern revolutioniert."
-                  </blockquote>
+                <div className="glass-panel border-beam-card" style={{ 
+                  padding: '1.5rem', 
+                  borderRadius: '1.5rem', 
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  ['--beam-color' as any]: 'rgba(16, 185, 129, 0.5)',
+                  ['--beam-duration' as any]: '5s'
+                }}>
+                  <div style={{ fontSize: '2.25rem', fontWeight: '900' }}><CountUp end={100} suffix="%" /></div>
+                  <div style={{ fontSize: '0.65rem', fontWeight: '900', color: '#cbd5e1', letterSpacing: '0.1em', marginTop: '0.25rem' }}>KI-READY</div>
                 </div>
               </div>
             </div>
