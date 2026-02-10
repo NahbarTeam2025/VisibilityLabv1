@@ -72,7 +72,7 @@ const CaseStudy: React.FC = () => {
             </div>
             
             {/* Story Points */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
               <div style={{ display: 'flex', gap: '1.5rem' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#f87171', marginTop: '8px', flexShrink: 0 }}></div>
                 <div>
